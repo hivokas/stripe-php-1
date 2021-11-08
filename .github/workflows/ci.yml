@@ -75,6 +75,7 @@ jobs:
           - "7.2"
           - "7.3"
           - "7.4"
+          - "8.0"
 
     steps:
       - uses: actions/checkout@master
@@ -108,8 +109,3 @@ jobs:
           php --version
           ./build.php $env:AUTOLOAD
 
-      - name: Send code coverage report to coveralls.io
-        run: vendor/bin/php-coveralls -c .coveralls.github-actions.yml -v
-        env:
-          COVERALLS_RUN_LOCALLY: 1
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
